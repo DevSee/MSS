@@ -1,0 +1,10 @@
+name: MSS
+authors: [See, Dom3Zockt, Sunix3]
+version: 0.1
+description: The Complete MineShine-Serversystem!
+main: me.MineShine.MSS
+
+commands:
+  feed:
+    description: 'Füllt den Hunger von einem Spieler auf.'
+    aliases: [eat]
