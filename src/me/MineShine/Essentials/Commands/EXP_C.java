@@ -84,7 +84,7 @@ public class EXP_C implements CommandExecutor
 						}
 					} catch (NumberFormatException e)
 					{
-						Console.sendUsage("/exp [Player]");
+						p.sendUsage("/exp [Player]");
 						return true;
 					}
 					p.print("Erfolgreich "+ChatColor.YELLOW+args[1]+"-EXP"+ChatColor.AQUA+" punkte für den Spieler "+ChatColor.YELLOW+args[0]+ChatColor.AQUA+" gesetzt!");

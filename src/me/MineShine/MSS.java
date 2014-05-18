@@ -1,14 +1,13 @@
 package me.MineShine;
 
-import java.io.IOException;
-
+import me.MineShine.ChatManager.PlayerChatListener;
 import me.MineShine.Essentials.Commands.EXP_C;
 import me.MineShine.Essentials.Commands.Enchant_C;
 import me.MineShine.Essentials.Commands.Feed_C;
+import me.MineShine.Essentials.Commands.Fly_C;
 import me.MineShine.Essentials.Commands.Stack_C;
 import me.MineShine.Features.BlockCommands;
 import me.MineShine.Utils.Console;
-import me.MineShine.Utils.Setup;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -54,27 +53,22 @@ public class MSS extends JavaPlugin
 	
 	private void loadConfig()
 	{
-		if(Setup.checkFile(var.config, "plugins//MSS") == false)
-		{
-			FileConfiguration cfg = YamlConfiguration.loadConfiguration(var.config);
-			cfg.set("MineShine.SQL.Hostname", "Host");
-			cfg.set("MineShine.SQL.Port", "3306");
-			cfg.set("MineShine.SQL.Username", "User");
-			cfg.set("MineShine.SQL.Password", "Password");
-			cfg.set("MineShine.SQL.Database", "database");
-			try{cfg.save(var.config);}catch(IOException e){}
-		}
+		this.saveDefaultConfig();
 		FileConfiguration cfg = YamlConfiguration.loadConfiguration(var.config);
 		var.host = cfg.getString("MineShine.SQL.Hostname");
 		var.port = cfg.getString("MineShine.SQL.Port");
 		var.user = cfg.getString("MineShine.SQL.Username");
 		var.password = cfg.getString("MineShine.SQL.Password");
 		var.database = cfg.getString("MineShine.SQL.Database");
+		var.chatformat = cfg.getString("MineShine.Chat.Format");
 	}
 	
 	private void loadEvents()
 	{
 		//MS-Economy:
+		
+		//MS-ChatManager
+		Bukkit.getPluginManager().registerEvents(new PlayerChatListener(), this);
 		
 		//MS-Shop:
 		
@@ -109,7 +103,7 @@ public class MSS extends JavaPlugin
 		this.getCommand("stack").setExecutor(new Stack_C());
 		this.getCommand("enchant").setExecutor(new Enchant_C());
 		this.getCommand("exp").setExecutor(new EXP_C());
-		
+		this.getCommand("fly").setExecutor(new Fly_C());		
 		//MS-Bans:
 		
 		//MS-Suport:
