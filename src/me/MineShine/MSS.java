@@ -2,10 +2,15 @@ package me.MineShine;
 
 import java.io.IOException;
 
+import me.MineShine.Essentials.Commands.EXP_C;
+import me.MineShine.Essentials.Commands.Enchant_C;
 import me.MineShine.Essentials.Commands.Feed_C;
+import me.MineShine.Essentials.Commands.Stack_C;
+import me.MineShine.Features.BlockCommands;
 import me.MineShine.Utils.Console;
 import me.MineShine.Utils.Setup;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -86,6 +91,7 @@ public class MSS extends JavaPlugin
 		//MS-Friede
 		
 		//MS-Info
+		Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
 	}
 	
 	/*
@@ -100,6 +106,9 @@ public class MSS extends JavaPlugin
 		
 		//MS-Essentials:
 		this.getCommand("feed").setExecutor(new Feed_C());
+		this.getCommand("stack").setExecutor(new Stack_C());
+		this.getCommand("enchant").setExecutor(new Enchant_C());
+		this.getCommand("exp").setExecutor(new EXP_C());
 		
 		//MS-Bans:
 		

@@ -34,7 +34,7 @@ public class MSPlayer
 	
 	public boolean hasPermission(String node)
 	{
-		if(getPermissions().has(node))
+		if(getPermissions().has(node) || getPermissions().has("MSS.*"))
 		{
 			return true;
 		} else {

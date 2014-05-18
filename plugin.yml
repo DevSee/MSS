@@ -8,3 +8,10 @@ commands:
   feed:
     description: 'Füllt den Hunger von einem Spieler auf.'
     aliases: [eat]
+  stack:
+    description: 'Setzt alle Items im Inventar zu 64er Itemstacks.'
+  enchant:
+    description: 'Verzaubert das Item, dass der Spieler in der Hand hat.'
+  exp:
+    description: 'Setzt die EXP-Leiste eines Spielers'
+    aliases: [xp]

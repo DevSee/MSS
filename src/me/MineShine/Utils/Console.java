@@ -38,4 +38,9 @@ public class Console
 	{
 		warn("Verwendung: "+ChatColor.AQUA+usage);
 	}
+	
+	public static void sendOnlyPlayer()
+	{
+		warn(MSS.getInstance().var.prefix+"Diesen Befehl dürfen nur Spieler ausführen!");
+	}
 }

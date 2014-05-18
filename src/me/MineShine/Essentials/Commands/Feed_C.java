@@ -45,10 +45,13 @@ public class Feed_C implements CommandExecutor
 		
 		if(args.length == 1)
 		{
-			MSPlayer target = new MSPlayer(Bukkit.getPlayer(args[0]));
-			try{target.getPlayer().setFoodLevel(20);
-			p.print("Der Hunger von "+ChatColor.YELLOW+target.getPlayer().getName()+ChatColor.AQUA+" wurde gestillt!");
-			target.print("Dein Hunger wurde von "+ChatColor.YELLOW+p.getPlayer().getName()+ChatColor.AQUA+" gestillt!");}catch(NullPointerException e){p.print("Der Spieler "+ChatColor.YELLOW+args[0]+ChatColor.AQUA+" ist nicht Online!"); return true;}
+			if(p.hasPermission("MSS.Commands.Feed.Others"))
+			{
+				MSPlayer target = new MSPlayer(Bukkit.getPlayer(args[0]));
+				try{target.getPlayer().setFoodLevel(20);
+				p.print("Der Hunger von "+ChatColor.YELLOW+target.getPlayer().getName()+ChatColor.AQUA+" wurde gestillt!");
+				target.print("Dein Hunger wurde von "+ChatColor.YELLOW+p.getPlayer().getName()+ChatColor.AQUA+" gestillt!");}catch(NullPointerException e){p.print("Der Spieler "+ChatColor.YELLOW+args[0]+ChatColor.AQUA+" ist nicht Online!"); return true;}
+			}
 			return true;
 		}
 		if(args.length > 1)
