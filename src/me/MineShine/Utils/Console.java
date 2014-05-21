@@ -38,7 +38,7 @@ public class Console
 	
 	public static void sendUsage(String usage)
 	{
-		warn("Verwendung: "+usage);
+		warn("Verwendung: "+usage.toLowerCase());
 	}
 	
 	public static void sendOnlyPlayer()

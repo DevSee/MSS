@@ -23,6 +23,9 @@ public class Var
 	//SocialSpy
 	public ArrayList<String> socialspy = new ArrayList<String>();
 	
+	//God
+	public ArrayList<String> god = new ArrayList<String>();
+	
 	//Chatformat
 	public String chatformat;
 	

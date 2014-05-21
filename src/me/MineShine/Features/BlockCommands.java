@@ -13,8 +13,14 @@ public class BlockCommands implements Listener
 	{
 		String args = e.getMessage();
 		MSPlayer p = new MSPlayer(e.getPlayer());
-		if(args.toLowerCase().contains("/pex") || args.toLowerCase().contains("/plugins") || args.toLowerCase().contains("/about") || args.toLowerCase().contains("/help") || args.toLowerCase().contains("/?") || args.toLowerCase().contains("/Version") || args.toLowerCase().contains("/ver"))
+		if(args.toLowerCase().contains("/pl") || args.toLowerCase().contains("/pex") || args.toLowerCase().contains("/plugins") || args.toLowerCase().contains("/about") || args.toLowerCase().contains("/help") || args.toLowerCase().contains("/?") || args.toLowerCase().contains("/Version") || args.toLowerCase().contains("/ver"))
 		{
+			if(args.toLowerCase().contains("/pex"))
+			{
+				p.sendUsage("/Perms");
+				e.setCancelled(true);
+				return;
+			}
 			if(!p.hasPermission("MSS.Admin")){e.setCancelled(true);}
 		}
 	}

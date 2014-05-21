@@ -4,14 +4,19 @@ import me.MineShine.ChatManager.PlayerChatListener;
 import me.MineShine.ClearLag.Commands.ClearLag_C;
 import me.MineShine.Essentials.Commands.EXP_C;
 import me.MineShine.Essentials.Commands.Enchant_C;
-import me.MineShine.Essentials.Commands.Enderchest_C;
 import me.MineShine.Essentials.Commands.Feed_C;
 import me.MineShine.Essentials.Commands.Fly_C;
 import me.MineShine.Essentials.Commands.GameMode_C;
+import me.MineShine.Essentials.Commands.God_C;
+import me.MineShine.Essentials.Commands.ME_C;
 import me.MineShine.Essentials.Commands.MSG_C;
+import me.MineShine.Essentials.Commands.More_C;
+import me.MineShine.Essentials.Commands.Ping_C;
+import me.MineShine.Essentials.Commands.Repair_C;
 import me.MineShine.Essentials.Commands.Reply_C;
 import me.MineShine.Essentials.Commands.Socialspy_C;
 import me.MineShine.Essentials.Commands.Stack_C;
+import me.MineShine.Essentials.Commands.Workbench_C;
 import me.MineShine.Features.BlockCommands;
 import me.MineShine.Utils.Console;
 
@@ -45,6 +50,7 @@ public class MSS extends JavaPlugin
         Console.print("|               Coded for MineShine.me                |");
         Console.print("|                                                     |");
         Console.print("=======================================================");
+        Console.print("");
 		Console.print("Loading Config..");
 		loadConfig();
 		Console.print("Loading Commands..");
@@ -92,8 +98,7 @@ public class MSS extends JavaPlugin
 	
 	private void loadEvents()
 	{
-		//MS-Economy:
-		Bukkit.getPluginManager().registerEvents(new Enderchest_C(), this);
+		//MS-Economy
 		
 		//MS-ChatManager
 		Bukkit.getPluginManager().registerEvents(new PlayerChatListener(), this);
@@ -101,6 +106,7 @@ public class MSS extends JavaPlugin
 		//MS-Shop:
 		
 		//MS-Essentials:
+		Bukkit.getPluginManager().registerEvents(new God_C(), this);
 		
 		//MS-Bans:
 		
@@ -136,7 +142,12 @@ public class MSS extends JavaPlugin
 		this.getCommand("reply").setExecutor(new Reply_C());
 		this.getCommand("socialspy").setExecutor(new Socialspy_C());
 		this.getCommand("gamemode").setExecutor(new GameMode_C());
-		this.getCommand("enderchest").setExecutor(new Enderchest_C());
+		this.getCommand("ping").setExecutor(new Ping_C());
+		this.getCommand("repair").setExecutor(new Repair_C());
+		this.getCommand("workbench").setExecutor(new Workbench_C());
+		this.getCommand("me").setExecutor(new ME_C());
+		this.getCommand("more").setExecutor(new More_C());
+		this.getCommand("god").setExecutor(new God_C());
 		
 		//MS-Bans:
 		

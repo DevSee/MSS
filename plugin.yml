@@ -34,3 +34,18 @@ commands:
   enderchest:
     description: 'Opens the Enderchest of a Player.'
     aliases: [ec]
+  ping:
+    description: 'Returns IP, Playername and Ping of a Playre.'
+    aliases: [pong]
+  repair:
+    description: 'Sets the Durability of all Items in a Players inventory to 0'
+    aliases: [fix]
+  workbench:
+    description: 'Opens an Inventory with Type Workbench.'
+    aliases: [wb]
+  me:
+    description: 'Sends a Message.'
+  more:
+    description: 'Sets the Amount of the Item in the Players Hand to 64.'
+  god:
+    description: 'Makes a Player invincible.'

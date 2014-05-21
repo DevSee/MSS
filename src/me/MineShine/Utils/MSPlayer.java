@@ -45,7 +45,7 @@ public class MSPlayer
 	
 	public void sendUsage(String usage)
 	{
-		print(ChatColor.RED+"Verwendung: "+ChatColor.AQUA+usage);
+		print(ChatColor.RED+"Verwendung: "+ChatColor.AQUA+usage.toLowerCase());
 	}
 	
 }
