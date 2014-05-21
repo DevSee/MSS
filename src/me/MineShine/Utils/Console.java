@@ -7,13 +7,15 @@ import org.bukkit.ChatColor;
 
 public class Console 
 {
+	private static String consolePrefix = "["+MSS.getInstance().getDescription().getName()+"] " ;
+	
 	/*
 	 * Sends a Message to the Console
 	 */
 	
 	public static void print(String msg)
 	{
-		Bukkit.getLogger().info(MSS.getInstance().var.prefix+msg);
+		Bukkit.getLogger().info(consolePrefix+msg);
 	}
 	
 	/*
@@ -22,7 +24,7 @@ public class Console
 	
 	public static void warn(String msg)
 	{
-		Bukkit.getLogger().warning(MSS.getInstance().var.prefix+msg);
+		Bukkit.getLogger().warning(consolePrefix+msg);
 	}
 	
 	/*
@@ -36,11 +38,11 @@ public class Console
 	
 	public static void sendUsage(String usage)
 	{
-		warn("Verwendung: "+ChatColor.AQUA+usage);
+		warn("Verwendung: "+usage);
 	}
 	
 	public static void sendOnlyPlayer()
 	{
-		warn(MSS.getInstance().var.prefix+"Diesen Befehl dürfen nur Spieler ausführen!");
+		warn("Diesen Befehl dürfen nur Spieler ausführen!");
 	}
 }

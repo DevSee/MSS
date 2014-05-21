@@ -17,3 +17,20 @@ commands:
     aliases: [xp]
   fly:
     description: 'Erlaubt Spielern zu Fliegen.'
+  clearlag:
+    description: 'Löscht alle Entities in einer Welt.'
+    aliases: [cl]
+  msg:
+    description: 'Sends a Message to a Player'
+    aliases: [t, m, tell, w, whisper]
+  reply:
+    description: 'Sends a Message to a Player, who send a Message to the Sender before.'
+    aliases: [r, answer]
+  socialspy:
+    description: 'Sends a Message with the String of every MSG commands to all Players with a Certain Permission.'
+  gamemode:
+    description: 'Sets the Gamemode of a Player.'
+    aliases: [gm]
+  enderchest:
+    description: 'Opens the Enderchest of a Player.'
+    aliases: [ec]

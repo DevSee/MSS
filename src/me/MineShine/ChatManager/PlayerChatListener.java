@@ -20,7 +20,19 @@ public class PlayerChatListener implements Listener
 		format = format.replace("%suffix", p.getPermissions().getSuffix());
 		format = format.replace("%message", e.getMessage());
 		format = ChatColor.translateAlternateColorCodes('&', format);
-		
-		e.setFormat(format);
+		try
+		{
+			e.setFormat(format);
+		} catch (NullPointerException ex)
+		{
+			format = "&7» %prefix &7« %playername: %suffix%message";
+			format = format.replace("%playername", p.getPlayer().getName());
+			format = format.replace("%prefix", p.getPermissions().getPrefix());
+			format = format.replace("%suffix", p.getPermissions().getSuffix());
+			format = format.replace("%message", e.getMessage());
+			format = ChatColor.translateAlternateColorCodes('&', format);
+			e.setFormat("[MSS ABSTURZ] "+p.getPlayer().getName()+":");
+			return;
+		}
 	}
 }

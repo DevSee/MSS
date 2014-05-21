@@ -1,10 +1,16 @@
 package me.MineShine;
 
 import me.MineShine.ChatManager.PlayerChatListener;
+import me.MineShine.ClearLag.Commands.ClearLag_C;
 import me.MineShine.Essentials.Commands.EXP_C;
 import me.MineShine.Essentials.Commands.Enchant_C;
+import me.MineShine.Essentials.Commands.Enderchest_C;
 import me.MineShine.Essentials.Commands.Feed_C;
 import me.MineShine.Essentials.Commands.Fly_C;
+import me.MineShine.Essentials.Commands.GameMode_C;
+import me.MineShine.Essentials.Commands.MSG_C;
+import me.MineShine.Essentials.Commands.Reply_C;
+import me.MineShine.Essentials.Commands.Socialspy_C;
 import me.MineShine.Essentials.Commands.Stack_C;
 import me.MineShine.Features.BlockCommands;
 import me.MineShine.Utils.Console;
@@ -26,6 +32,19 @@ public class MSS extends JavaPlugin
 	{
 		//Setting instance;
 		mss = this;
+        Console.print("=======================================================");
+        Console.print("|                                                     |");
+        Console.print("|               MSS - MineShineSystem                 |");
+        Console.print("|     Copyright (C) 2012 - 2014  Laurin Fäller        |");
+        Console.print("|                                                     |");
+        Console.print("|        This program is not free software!           |");
+        Console.print("|    You are not allowed to use, modify or spread     |");
+        Console.print("|  it without the agreement of the copyright holder.  |");
+        Console.print("|                                                     |");
+        Console.print("|          Contact: Admin@LF-Online.info              |");
+        Console.print("|               Coded for MineShine.me                |");
+        Console.print("|                                                     |");
+        Console.print("=======================================================");
 		Console.print("Loading Config..");
 		loadConfig();
 		Console.print("Loading Commands..");
@@ -36,12 +55,20 @@ public class MSS extends JavaPlugin
 		//TODO Add MySQL-Methods
 		Console.print("Succesfully Loaded "+this.getDescription().getName()+" v"+this.getDescription().getVersion()+"!");
 		Console.print("Plugin coded for MineShine. Do not distribute. All rights reserved!");
-		Console.print("Created by: See, Sunix3, Dom3Zockt.");
+		Console.print("Created by: "+this.getDescription().getAuthors());
 	}
 	
 	@Override
 	public void onDisable()
 	{
+		Console.print("=======================================================");
+		Console.print("|                                                     |");
+		Console.print("|               MSS - MineShineSystem                 |");
+		Console.print("|     Copyright (C) 2012 - 2014  Laurin Fäller        |");
+		Console.print("|                                                     |");
+		Console.print("|         This program is not free software!          |");
+		Console.print("|             TPS successfully disabled!              |");
+		Console.print("=======================================================");
 		Console.printAll("Das "+ChatColor.YELLOW+"MSS"+ChatColor.AQUA+" wurde deaktiviert!");
 	}
 	
@@ -66,6 +93,7 @@ public class MSS extends JavaPlugin
 	private void loadEvents()
 	{
 		//MS-Economy:
+		Bukkit.getPluginManager().registerEvents(new Enderchest_C(), this);
 		
 		//MS-ChatManager
 		Bukkit.getPluginManager().registerEvents(new PlayerChatListener(), this);
@@ -103,7 +131,13 @@ public class MSS extends JavaPlugin
 		this.getCommand("stack").setExecutor(new Stack_C());
 		this.getCommand("enchant").setExecutor(new Enchant_C());
 		this.getCommand("exp").setExecutor(new EXP_C());
-		this.getCommand("fly").setExecutor(new Fly_C());		
+		this.getCommand("fly").setExecutor(new Fly_C());
+		this.getCommand("msg").setExecutor(new MSG_C());
+		this.getCommand("reply").setExecutor(new Reply_C());
+		this.getCommand("socialspy").setExecutor(new Socialspy_C());
+		this.getCommand("gamemode").setExecutor(new GameMode_C());
+		this.getCommand("enderchest").setExecutor(new Enderchest_C());
+		
 		//MS-Bans:
 		
 		//MS-Suport:
@@ -113,6 +147,9 @@ public class MSS extends JavaPlugin
 		//MS-Clan
 		
 		//MS-Friede
+		
+		//MS-ClearLag
+		this.getCommand("clearlag").setExecutor(new ClearLag_C());
 		
 		//MS-Info
 	}

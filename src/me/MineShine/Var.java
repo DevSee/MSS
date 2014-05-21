@@ -2,6 +2,7 @@ package me.MineShine;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.bukkit.ChatColor;
 
@@ -16,6 +17,12 @@ public class Var
 	//Prefix
 	public String prefix = ChatColor.GOLD+"[MSS] ";
 	
+	//Reply
+	public HashMap<String, String> replies = new HashMap<String, String>();
+	
+	//SocialSpy
+	public ArrayList<String> socialspy = new ArrayList<String>();
+	
 	//Chatformat
 	public String chatformat;
 	
@@ -25,7 +32,4 @@ public class Var
 	public String user;
 	public String password;
 	public String database;
-	
-	//ArrayLists / HashMaps
-	public ArrayList<String> flying = new ArrayList<String>();
 }
